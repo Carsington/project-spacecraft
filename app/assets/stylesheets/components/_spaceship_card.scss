@@ -3,6 +3,7 @@
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   width: 400px;
+
 }
 
 .card-ship > img {
@@ -15,12 +16,15 @@
   font-size: 16px;
   font-weight: bold;
   margin: 0;
+  font-family: 'Orbitron', sans-serif;
+  color: #00edff;
 }
 
 .card-ship p {
   font-size: 12px;
   opacity: .7;
   margin: 0;
+  font-family: 'Electrolize', sans-serif;
 }
 
 
