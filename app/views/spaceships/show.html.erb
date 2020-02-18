@@ -1,1 +1,31 @@
-<h1>Spaceship name: <% @spaceship.name %></h1>
+<div class="container">
+  <div class="head">
+    <h1><%= @spaceship.name %></h1>
+    <p>(<%= @spaceship.address %>-SHIIIIIT) - ⭐⭐⭐⭐</p>
+    <div class="main-pic">
+      <%= image_tag @spaceship.main_pic_url, alt: "spaceship", width: 200 %>
+    </div>
+  </div>
+
+  <div class="second-container">
+    <div class="description">
+      <h3>Description</h3>
+      <p><%= @spaceship.description %></p>
+    </div>
+    <div class="features">
+      <h3>Features</h3>
+      <div class="features-list">
+        <p><i class="fas fa-ruler-horizontal"></i> <%= @spaceship.size %> m</p>
+        <p><i class="fas fa-tachometer-alt"></i> <%= @spaceship.max_speed %> pc/day</p>
+        <p><i class="fas fa-users"></i> <%= @spaceship.capacity %> passengers</p>
+      </div>
+    </div>
+    <div class="reviews">
+      <h3>Reviews</h3>
+      <div class="reviews-list">
+
+      </div>
+    </div>
+  </div>
+
+</div>
