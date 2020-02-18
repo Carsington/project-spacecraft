@@ -14,7 +14,7 @@ NB_USERS.times do
     password: Faker::Internet.password,
     nickname: Faker::Movies::StarWars.character,
     age: rand(7..77),
-    avatar_url: Faker::LoremFlickr.image(size: "60x50", search_terms: ['jedi'])
+    avatar_url: Faker::LoremFlickr.image(size: "200x200", search_terms: ['kitten'])
   )
   user.save
 end
@@ -23,21 +23,21 @@ puts "#{User.all.length}/#{NB_USERS} users created"
 puts "Creating spaceships..."
 users = User.all
 
-NB_SPACESHIPS.times do # |i|
+NB_SPACESHIPS.times do |i|
   spaceship = Spaceship.new(
     user: users.sample,
     name: Faker::Movies::StarWars.vehicle,
     address: Faker::Movies::StarWars.planet,
     description: Faker::Movies::StarWars.wookiee_sentence,
-    main_pic_url: Faker::LoremFlickr.image(size: "60x50", search_terms: ['jedi']),
+    main_pic_url: Faker::LoremFlickr.image(size: "200x200", search_terms: ['jedi']),
     unit_price: rand(20..250),
     size: rand(10..1000),
     max_speed: rand(5..50),
     capacity: [1, 2, 4, 8, 16, 32, 64, 128, 256].sample
   )
-  puts "#{i + 1}. #{spaceship.name} (Planet: #{spaceship.address})"
-  puts "Size: #{spaceship.size}m - Capacity: #{spaceship.capacity} - Max speed: #{spaceship.max_speed}pc/day"
-  puts "#{spaceship.unit_price}$/day"
+  # puts "#{i + 1}. #{spaceship.name} (Planet: #{spaceship.address})"
+  # puts "Size: #{spaceship.size}m - Capacity: #{spaceship.capacity} - Max speed: #{spaceship.max_speed}pc/day"
+  # puts "#{spaceship.unit_price}$/day"
 
   spaceship.save
 end

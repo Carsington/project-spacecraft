@@ -1,8 +1,6 @@
 class Spaceship < ApplicationRecord
-  # TODO : remove the 'optional: true' from 'belongs_to'
-  belongs_to :user, dependent: :destroy, optional: true
-
-  has_many :bookings
+  belongs_to :user
+  has_many :bookings, dependent: :destroy
   has_many :reviews
 
   validates :name, :address, :description, :unit_price, :size,

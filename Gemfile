@@ -17,7 +17,7 @@ gem 'webpacker'
 
 # Additionnal gems
 gem 'devise'
-gem 'faker'
+gem 'faker', groups: [:development, :test]
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'cloudinary', '~> 1.12.0'
 
