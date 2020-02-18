@@ -1,1 +1,14 @@
-<h1>Spaceship index</h1>
+<div class="container">
+  <h1>Spaceships index</h1>
+
+  <div class="spaceships-list">
+    <% @spaceships.each do |spaceship| %>
+      <%= link_to spaceship_path(spaceship) do %>
+      <div class="card-spaceship">
+        <h3><%= spaceship.name %></h3>
+        <p><%= spaceship.unit_price %> units/day</p>
+      </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
