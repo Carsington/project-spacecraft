@@ -4,6 +4,29 @@
   <div class="spaceships-list">
     <% @spaceships.each do |spaceship| %>
       <%= link_to spaceship_path(spaceship) do %>
+        <div class="card-spaceship">
+          <%= image_tag spaceship.main_pic_url, class: "spaceship-img", alt: "spaceship", width: 350 %>
+          <div class="card-spaceship-info">
+            <div>
+              <h2><%= spaceship.name %></h2>
+              <p><%= spaceship.description %></p>
+            </div>
+            <h2 class="card-spaceship-pricing"><%= spaceship.unit_price %>$</h2>
+            <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-spaceship-user avatar-bordered" />
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+<!-- ---------- DO NOT TOUCH ---------- -->
+<!-- <div class="container">
+  <h1>Spaceships index</h1>
+
+  <div class="spaceships-list">
+    <% @spaceships.each do |spaceship| %>
+      <%= link_to spaceship_path(spaceship) do %>
       <div class="card-spaceship">
         <h3><%= spaceship.name %></h3>
         <p><%= spaceship.unit_price %> units/day</p>
@@ -11,4 +34,5 @@
       <% end %>
     <% end %>
   </div>
-</div>
+</div> -->
+<!-- ---------------------------------- -->

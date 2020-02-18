@@ -1,22 +1,87 @@
 // Import page-specific CSS files here.
 @import "home";
 
+// OLD CSS
+// .spaceships-list {
+//   display: flex;
+//   flex-wrap: wrap;
+//   padding: 12px;
+//   text-align: center;
+// }
+//
+// .card-spaceship {
+//   border: 1px solid grey;
+//   border-radius: 2px;
+//   height: 160px;
+//   width: 200px;
+//   padding: 8px;
+//   margin: 8px;
+//
+//   h3 {
+//     font-size: 20px;
+//   }
+// }
+
 .spaceships-list {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 12px;
-  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 12px;
 }
 
 .card-spaceship {
-  border: 1px solid grey;
-  border-radius: 2px;
-  height: 160px;
-  width: 200px;
-  padding: 8px;
-  margin: 8px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  width: 350px;
+}
 
-  h3 {
-    font-size: 20px;
+.card-spaceship > .spaceship-img {
+  max-height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-spaceship h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-spaceship p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+
+.card-spaceship .card-spaceship-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card-spaceship-infos .card-spaceship-user {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
+}
+
+@media(max-width: 1200px) {
+  .spaceships-list {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media(max-width: 1000px) {
+  .spaceships-list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media(max-width: 768px) {
+  .spaceships-list {
+    grid-template-columns: 1fr;
   }
 }
