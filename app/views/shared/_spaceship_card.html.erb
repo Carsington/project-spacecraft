@@ -1,8 +1,7 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-6">
       <% @user.spaceships.each do |spaceship| %>
-        <div class="card-ship">
+        <div class="card-ship col-sm">
           <img src=<%= "#{spaceship.main_pic_url}" %> />
           <div class="card-ship-infos">
             <div>
@@ -14,10 +13,9 @@
           </div>
         </div>
       <% end %>
-    </div>
   </div>
 </div>
-<!-- pour image hosté : <#%= cl_image_tag(@cocktails.photo.key, height: 300, width: 400, crop: :fill) %> -->
+<!-- pour image hostée : <#%= cl_image_tag(@cocktails.photo.key, height: 300, width: 400, crop: :fill) %> -->
 
 <!-- <div class="d-flex justify-content-around flex-wrap">
   <% @user.spaceships.each do |spaceship| %>
