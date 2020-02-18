@@ -7,6 +7,8 @@ class User < ApplicationRecord
   has_many :spaceships, dependent: :destroy
   has_many :bookings, dependent: :destroy
   has_many :reviews
+  
+  has_one_attached :photo
 
   validates :nickname, uniqueness: { case_sensitive: false }
 end

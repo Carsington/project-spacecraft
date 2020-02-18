@@ -10,6 +10,7 @@
     required: true %>
     <%= f.input :age,
     required: true %>
+    <%= f.input :photo, as: :file %>
     <%= f.input :email,
     required: true,
     autofocus: true,
@@ -29,5 +30,5 @@
   <% end %>
 
   <%= render "devise/shared/links" %>
-  <!-- <%= link_to "Back home", root_path %> -->
+  <%= link_to "Back home", root_path %>
 </div>
