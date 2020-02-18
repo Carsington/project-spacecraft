@@ -35,9 +35,9 @@ NB_SPACESHIPS.times do # |i|
     max_speed: rand(5..50),
     capacity: [1, 2, 4, 8, 16, 32, 64, 128, 256].sample
   )
-  # puts "#{i + 1}. #{spaceship.name} (Planet: #{spaceship.address})"
-  # puts "Size: #{spaceship.size}m - Capacity: #{spaceship.capacity} - Max speed: #{spaceship.max_speed}pc/day"
-  # puts "#{spaceship.unit_price}$/day"
+  puts "#{i + 1}. #{spaceship.name} (Planet: #{spaceship.address})"
+  puts "Size: #{spaceship.size}m - Capacity: #{spaceship.capacity} - Max speed: #{spaceship.max_speed}pc/day"
+  puts "#{spaceship.unit_price}$/day"
 
   spaceship.save
 end

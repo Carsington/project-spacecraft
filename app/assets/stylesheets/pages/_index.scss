@@ -1,2 +1,22 @@
 // Import page-specific CSS files here.
 @import "home";
+
+.spaceships-list {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 12px;
+  text-align: center;
+}
+
+.card-spaceship {
+  border: 1px solid grey;
+  border-radius: 2px;
+  height: 160px;
+  width: 200px;
+  padding: 8px;
+  margin: 8px;
+
+  h3 {
+    font-size: 20px;
+  }
+}
