@@ -1,5 +1,5 @@
 <div class="container">
-  <h1>New spaceship</h1>
+  <h1>Edit <%= @spaceship.name %></h1>
 
   <%= simple_form_for @spaceship do |f| %>
     <%= f.input :name %>
@@ -11,6 +11,6 @@
     <%= f.input :size %>
     <%= f.input :max_speed %>
     <%= f.input :capacity %>
-    <%= f.submit "Add spaceship", class: "btn btn-primary" %>
+    <%= f.submit "Edit spaceship", class: "btn btn-primary" %>
   <% end %>
 </div>
