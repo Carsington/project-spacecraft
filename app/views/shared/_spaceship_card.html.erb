@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6">
+      <% @user.spaceships.each do |spaceship| %>
+        <div class="card-ship">
+          <img src=<%= "#{spaceship.main_pic_url}" %> />
+          <div class="card-ship-infos">
+            <div>
+              <h2><%= spaceship.name %></h2>
+              <p><%= spaceship.description %></p>
+            </div>
+            <h2 class="card-ship-pricing"><%= spaceship.unit_price %></h2>
+            <img src=<%= spaceship.user %> class="card-ship-user avatar-bordered" />
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<!-- pour image hosté : <#%= cl_image_tag(@cocktails.photo.key, height: 300, width: 400, crop: :fill) %> -->
+
+<!-- <div class="d-flex justify-content-around flex-wrap">
+  <% @user.spaceships.each do |spaceship| %>
+    <div class="card text-center" style="width: 18rem;">
+      <div class="card-header">
+      <%= spaceship.description %>
+      </div>
+      <img class="card-img-top cover" src=<%= "#{spaceship.main_pic_url}" %> alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title"><%= spaceship.name %></h5>
+        <p class="card-text"></p>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Size (matters): <%= spaceship.size %></li>
+            <li class="list-group-item">Max Speed (LY/day): <%= spaceship.max_speed %></li>
+            <li class="list-group-item">Capacity: <%= spaceship.capacity %></li>
+          </ul>
+        <a href="#" class="btn btn-dark">Edit Spaceship</a>
+      </div>
+    </div>
+  <% end %>
+</div> -->

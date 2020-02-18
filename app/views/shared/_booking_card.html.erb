@@ -1,0 +1,18 @@
+<% @user.bookings.each do |booking| %>
+  <div class="card" style="width: 20rem;">
+    <img class="card-img-top" src=<%= "#{booking.spaceship.main_pic_url}" %> alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title"><%= booking.spaceship.name %></h5>
+      <p class="card-text">
+        <ul>
+          <li>Size (matters): <%= booking.spaceship.size %></li>
+          <li>Max Speed (LY/day): <%= booking.spaceship.max_speed %></li>
+          <li>Capacity: <%= booking.spaceship.capacity %></li>
+        </ul>
+      </p>
+      <a href="#" class="btn btn-primary">Edit booking</a>
+    </div>
+  <% end %>
+</div>
+
+<!-- pour image hosté : <#%= cl_image_tag(@cocktails.photo.key, height: 300, width: 400, crop: :fill) %> -->
