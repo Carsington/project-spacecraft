@@ -1,16 +1,19 @@
 input.btn {
-border: groove;
+  border: groove;
 }
 
 input.btn:hover {
-border: ridge;
+  border: ridge;
 }
 
 a.nav-link {
+  color: $space-blue !important;
 
+  &:hover {
+    color: #FFF !important;
+  }
 }
 
 a.btn-link {
-
   text-decoration: none;
 }
