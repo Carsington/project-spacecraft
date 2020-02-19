@@ -1,6 +1,14 @@
-<h1>New Booking</h1>
-<%= simple_form_for([@spaceship, @booking]) do |f| %>
-  <%= f.input :start_date %>
-  <%= f.input :end_date %>
-  <%= f.submit %>
-<% end %>
+<div class="card m-5">
+
+  <h4 class="card-header text-center">Book a trip with <%= @spaceship.name %></h4>
+
+  <div class="card-body">
+
+    <%= simple_form_for([@spaceship, @booking]) do |f| %>
+      <%= f.input :start_date %>
+      <%= f.input :end_date %>
+      <%= f.submit "Book now!", class: "btn btn-primary btn-block" %>
+    <% end %>
+  </div>
+
+</div>

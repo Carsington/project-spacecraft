@@ -1,0 +1,19 @@
+@import "home";
+
+.container-spaceship {
+  display: flex;
+  flex-direction: column;
+}
+
+.spaceship-subhead {
+  display: flex;
+}
+
+h3.subtitle {
+  font-size: 24px;
+}
+
+.stars {
+  margin: 0 8px;
+  padding-top: 4px;
+}
