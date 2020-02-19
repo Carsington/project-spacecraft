@@ -1,18 +1,20 @@
-<h1 class="mb-3">Discover the best spacecrafts accross the galaxy</h1>
+<h1 class="mb-3">Need a space ride? The best spacecrafts are here!</h1>
 
 <% @spaceships.each do |spaceship| %>
-  <div class="card-ship m-2">
-    <%= link_to "Book Now", new_spaceship_booking_path(spaceship), class: 'mybuttonoverlap btn btn-info' %>
-    <img src=<%= "#{spaceship.main_pic_url}" %> />
-    <div class="card-ship-infos">
-      <div>
-        <h2><%= spaceship.name %></h2>
-        <p><%= spaceship.description.first(80) %></p>
+  <%= link_to spaceship_path(spaceship) do %>
+    <div class="card-ship m-2">
+      <%#= link_to "Book Now", new_spaceship_booking_path(spaceship), class: 'mybuttonoverlap btn btn-info' %>
+      <%= image_tag spaceship.main_pic_url, class: "spaceship-img", alt: "spaceship", width: 350 %>
+      <div class="card-ship-infos">
+        <div>
+          <h2><%= spaceship.name %></h2>
+          <p><%= spaceship.description.first(80) %></p>
+        </div>
+        <h2 class="card-ship-pricing"><%= spaceship.unit_price %>€</h2>
+        <img src="https://pbs.twimg.com/profile_images/794107415876747264/g5fWe6Oh_400x400.jpg" class="card-ship-user avatar-bordered" />
       </div>
-      <h2 class="card-ship-pricing"><%= spaceship.unit_price %>€</h2>
-      <img src="https://pbs.twimg.com/profile_images/794107415876747264/g5fWe6Oh_400x400.jpg" class="card-ship-user avatar-bordered" />
     </div>
-  </div>
+  <% end %>
 <% end %>
 
 <!--   <div class="spaceships-list">
