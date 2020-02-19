@@ -22,6 +22,10 @@
 //   }
 // }
 
+h1 {
+  text-align: center;
+}
+
 .spaceships-list {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -66,6 +70,10 @@
   right: 16px;
   top: -20px;
   width: 40px;
+}
+
+.btn-info {
+  border: 1px solid #265489;
 }
 
 @media(max-width: 1200px) {
