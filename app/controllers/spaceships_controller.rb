@@ -17,7 +17,7 @@ class SpaceshipsController < ApplicationController
     @spaceship = Spaceship.new(spaceship_params)
     @spaceship.user = current_user
 
-    @spaceship.main_pic_url = 'generic_spaceships/02.jpeg'
+    @spaceship.main_pic_url = 'generic_spaceships/02.jpg'
     
     if @spaceship.save
       redirect_to @spaceship
