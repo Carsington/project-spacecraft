@@ -12,16 +12,16 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
-    # p @booking
-
     @spaceship = Spaceship.find(params[:spaceship_id])
 
     @booking.spaceship = @spaceship
     @booking.user = current_user
 
-    @booking.total_price = calculate_total_price(@spaceship.unit_price,
-      @booking.start_date, @booking.end_date)
-
+    @booking.total_price = calculate_total_price(
+      @spaceship.unit_price,
+      @booking.start_date,
+      @booking.end_date
+    )
 
     if @booking.save
       redirect_to user_path(current_user)
