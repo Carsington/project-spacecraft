@@ -5,6 +5,22 @@
   width: 400px;
   border: 1px solid #0a5688;
 
+  &:hover .mybuttonoverlap {
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+.mydivoverlap {
+  position: relative;
+  z-index: 1;
+}
+
+.mybuttonoverlap {
+  position: absolute;
+
+  margin: 0 auto;
+  display: none;
 }
 
 .card-ship > img {
