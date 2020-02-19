@@ -1,7 +1,10 @@
 <div class="container">
   <div class="head">
     <%= link_to "<=== Back to index", spaceships_path %>
-    <h1><%= @spaceship.name %></h1>
+    <h1>
+      <%= @spaceship.name %>
+      <%= link_to "BOOK", new_spaceship_booking_path(@spaceship), class: "btn btn-success" %>
+    </h1>
     <p>(<%= @spaceship.address %>-SHIIIIIT) - ⭐⭐⭐⭐</p>
     <%= link_to "Eddy-t", edit_spaceship_path(@spaceship) %>
     <%= link_to "Delete", spaceship_path(@spaceship),
