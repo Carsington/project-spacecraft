@@ -2,8 +2,8 @@
   <div class="head">
     <%= link_to "<=== Back to index", spaceships_path %>
     <h1><%= @spaceship.name %></h1>
-    <p>(<%= @spaceship.address %>-SHIIIIIT) - ⭐⭐⭐⭐</p>
-    <%= link_to "Eddy-t", edit_spaceship_path(@spaceship) %>
+    <p>(<%= @spaceship.address %>) - ⭐⭐⭐⭐</p>
+    <%= link_to "Edit", edit_spaceship_path(@spaceship) %>
     <%= link_to "Delete", spaceship_path(@spaceship),
           method: :delete,
           data: { confirm: "Are you sure?" } %>
