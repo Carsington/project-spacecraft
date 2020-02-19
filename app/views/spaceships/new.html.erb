@@ -2,16 +2,12 @@
 
   <h4 class="card-header text-center">About your splendid spaceship</h4>
 
-  <!-- <h2 class="card-title card-header">About your splendid spaceship</h2> -->
-
   <div class="card-body">
 
     <%= simple_form_for @spaceship do |f| %>
       <%= f.input :name, placeholder: "Eddy Malou" %>
       <%= f.input :address, placeholder: "107 Cours Balguerie Stuttenberg, 33300 Bordeaux" %>
       <%= f.input :description, placeholder: "Tell us more about how splendid your spaceship is" %>
-      <!-- TODO : delete the next line -->
-      <!-- <%= f.input :main_pic_url %> -->
       <%= f.input :unit_price %>
       <%= f.input :size %>
       <%= f.input :max_speed %>
