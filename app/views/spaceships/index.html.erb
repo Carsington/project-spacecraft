@@ -1,7 +1,27 @@
 <div class="container">
   <h1>Spaceships index</h1>
 
-  <div class="spaceships-list">
+  <div class="container">
+    <div class="row">
+        <% @spaceships.each do |spaceship| %>
+          <div class="card-ship col-sm-12 col-md-6 col-lg-6">
+            <!-- <div class="mydivoverlap"> -->
+              <%= link_to "Book Now", new_spaceship_booking_path(spaceship), class: 'mybuttonoverlap btn btn-info' %>
+            <img src=<%= "#{spaceship.main_pic_url}" %> />
+            <div class="card-ship-infos">
+              <div>
+                <h2><%= spaceship.name %></h2>
+                <p><%= spaceship.description %></p>
+              </div>
+              <h2 class="card-ship-pricing"><%= spaceship.unit_price %>€</h2>
+              <img src="https://pbs.twimg.com/profile_images/794107415876747264/g5fWe6Oh_400x400.jpg" class="card-ship-user avatar-bordered" />
+            </div>
+          </div>
+      <% end %>
+    </div>
+  </div>
+
+<!--   <div class="spaceships-list">
     <% @spaceships.each do |spaceship| %>
       <%= link_to spaceship_path(spaceship) do %>
         <div class="card-spaceship">
@@ -18,7 +38,8 @@
       <% end %>
     <% end %>
   </div>
-</div>
+</div> -->
+
 
 <!-- ---------- DO NOT TOUCH ---------- -->
 <!-- <div class="container">

@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
       <% @user.spaceships.each do |spaceship| %>
-        <div class="card-ship col-sm-6">
+        <div class="card-ship col-md-3">
           <img src=<%= "#{spaceship.main_pic_url}" %> />
           <div class="card-ship-infos">
             <div>
@@ -9,7 +9,7 @@
               <p><%= spaceship.description %></p>
             </div>
             <h2 class="card-ship-pricing"><%= spaceship.unit_price %>€</h2>
-            <img src=<%= spaceship.user %> class="card-ship-user avatar-bordered" />
+            <img src="https://pbs.twimg.com/profile_images/794107415876747264/g5fWe6Oh_400x400.jpg" class="card-ship-user avatar-bordered" />
           </div>
         </div>
       <% end %>

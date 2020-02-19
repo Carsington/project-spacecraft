@@ -1,10 +1,13 @@
 body {
   background: url('background-stars-2560.jpg');
+  height: 100%;
+  margin: 0;
 }
 
 .bg-layer {
-  background: url('gridbg_glow.png') repeat center top;
-
+  background: url('gridbg_glow.png');
+  background-repeat: repeat;
+  min-height: 100vh;
 }
 
 h1 {
