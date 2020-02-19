@@ -1,6 +1,9 @@
 <div class="container-spaceship">
   <div class="head">
-    <h1><%= @spaceship.name %></h1>
+    <h1>
+      <%= @spaceship.name %>
+      <%= link_to "BOOK", new_spaceship_booking_path(@spaceship), class: "btn btn-success" %>
+    </h1>
     <div class="spaceship-subhead">
       <h3 class="subtitle">(<%= @spaceship.address %>) - </h3>
       <div class="stars">
@@ -12,6 +15,7 @@
       </div>
     </div>
     <%= link_to "Edit", edit_spaceship_path(@spaceship) %>
+
     <%= link_to "Delete", spaceship_path(@spaceship),
           method: :delete,
           data: { confirm: "Are you sure?" } %>
