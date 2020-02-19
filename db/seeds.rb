@@ -1,11 +1,13 @@
 require 'faker'
 
 NB_USERS = 50
-NB_SPACESHIPS = 15
+NB_SPACESHIPS = 20
 NB_BOOKINGS = 8
 
 puts "Cleaning database..."
 User.destroy_all
+Spaceship.destroy_all
+Booking.destroy_all
 
 puts "Creating users..."
 NB_USERS.times do
@@ -13,8 +15,8 @@ NB_USERS.times do
     email: Faker::Internet.safe_email,
     password: Faker::Internet.password,
     nickname: Faker::Movies::StarWars.character,
-    age: rand(7..77),
-    avatar_url: Faker::LoremFlickr.image(size: "200x200", search_terms: ['kitten'])
+    age: rand(7..77)
+    # avatar_url: Faker::LoremFlickr.image(size: "200x200", search_terms: ['kitten'])
   )
   user.save
 end
@@ -23,13 +25,24 @@ puts "#{User.all.length}/#{NB_USERS} users created"
 puts "Creating spaceships..."
 users = User.all
 
+spaceships_urls = [
+  "generic_spaceships/01.jpg",
+  "generic_spaceships/02.jpeg",
+  "generic_spaceships/03.jpeg",
+  "generic_spaceships/04.png",
+  "generic_spaceships/05.jpg",
+  "generic_spaceships/06.jpg",
+  "generic_spaceships/07.jpg",
+  "generic_spaceships/08.jpg"
+]
+
 NB_SPACESHIPS.times do |i|
   spaceship = Spaceship.new(
     user: users.sample,
     name: Faker::Movies::StarWars.vehicle,
     address: Faker::Movies::StarWars.planet,
-    description: Faker::Movies::StarWars.wookiee_sentence,
-    main_pic_url: Faker::LoremFlickr.image(size: "200x200", search_terms: ['jedi']),
+    description: Faker::Movies::StarWars.wookiee_sentence * 20,
+    main_pic_url: spaceships_urls.sample,
     unit_price: rand(20..250),
     size: rand(10..1000),
     max_speed: rand(5..50),
