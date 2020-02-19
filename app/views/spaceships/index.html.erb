@@ -1,7 +1,25 @@
 <div class="container">
   <h1>Spaceships index</h1>
 
-  <div class="spaceships-list">
+<div class="container">
+  <div class="row">
+      <% @spaceships.each do |spaceship| %>
+        <div class="card-ship col-sm-6">
+          <img src=<%= "#{spaceship.main_pic_url}" %> />
+          <div class="card-ship-infos">
+            <div>
+              <h2><%= spaceship.name %></h2>
+              <p><%= spaceship.description %></p>
+            </div>
+            <h2 class="card-ship-pricing"><%= spaceship.unit_price %>€</h2>
+            <img src="https://cdn.dribbble.com/users/588874/screenshots/2249528/dribbble.png" class="card-ship-user avatar-bordered" />
+          </div>
+        </div>
+      <% end %>
+  </div>
+</div>
+
+<!--   <div class="spaceships-list">
     <% @spaceships.each do |spaceship| %>
       <%= link_to spaceship_path(spaceship) do %>
         <div class="card-spaceship">
@@ -18,7 +36,8 @@
       <% end %>
     <% end %>
   </div>
-</div>
+</div> -->
+
 
 <!-- ---------- DO NOT TOUCH ---------- -->
 <!-- <div class="container">
