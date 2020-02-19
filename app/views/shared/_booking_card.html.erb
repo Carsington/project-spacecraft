@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
       <% @user.bookings.each do |booking| %>
-        <div class="card-ship col-sm-1">
+        <div class="card-ship col-sm-12 col-md-3 col-lg-3 col-xl-3">
           <img src=<%= "#{booking.spaceship.main_pic_url}" %> />
           <div class="card-ship-infos">
             <div>
