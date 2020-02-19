@@ -7,28 +7,29 @@
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
-    <link href="https://fonts.googleapis.com/css?family=Electrolize|Orbitron:400,500,600,700,800,900&display=swap" rel="stylesheet">
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
   <body>
-    
+
     <%= render 'shared/navbar' %>
+    
+    <div class="bg-layer">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-sm-12 col-md-8">
 
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-sm-12 col-md-8">
+            <%= yield %>
 
-          <%= yield %>
-
+          </div>
         </div>
       </div>
+
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+
+      <%= javascript_include_tag 'application' %>
+
+      <%= javascript_pack_tag 'application' %>
     </div>
-
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-
-    <%= javascript_include_tag 'application' %>
-
-    <%= javascript_pack_tag 'application' %>
   </body>
 </html>
