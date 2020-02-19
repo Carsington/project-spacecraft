@@ -27,8 +27,8 @@ users = User.all
 
 spaceships_urls = [
   "generic_spaceships/01.jpg",
-  "generic_spaceships/02.jpeg",
-  "generic_spaceships/03.jpeg",
+  "generic_spaceships/02.jpg",
+  "generic_spaceships/03.jpg",
   "generic_spaceships/04.png",
   "generic_spaceships/05.jpg",
   "generic_spaceships/06.jpg",
