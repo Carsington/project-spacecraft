@@ -17,6 +17,10 @@ class User < ApplicationRecord
   private
 
   def attach_default_image
-    self.photo.attach(io: File.open(Rails.root.join("app", "assets", "images", "darth_vader_avatar.png")), filename: 'darth_vader_avatar.png' , content_type: "image/png")
+    self.photo.attach(
+      io: File.open(Rails.root.join("app", "assets", "images", "darth_vader_avatar.png")),
+      filename: 'darth_vader_avatar.png',
+      content_type: "image/png"
+    )
   end
 end
