@@ -2,6 +2,9 @@
   justify-content: space-between;
   color: $space-blue;
   margin-bottom: 12px;
+  position: sticky;
+  top: 0;
+  z-index: 5;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -14,4 +17,8 @@
 
 div.navbar.navbar-expand-sm.navbar-light.navbar-lewagon {
   background-color: $navbar-bg-color;
+}
+
+img#navbarDropdown.avatar.dropdown-toggle:hover{
+  cursor: pointer
 }
