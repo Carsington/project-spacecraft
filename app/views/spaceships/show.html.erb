@@ -30,7 +30,7 @@
   <div class="col-8">
     <div class="main-pic">
       <a href="https://www.youtube.com/watch?v=ma7TL8jJT0A">
-        <%= image_tag @spaceship.main_pic_url, alt: "spaceship", width: 400 %>
+        <%= cl_image_tag @spaceship.photo.attached? ? @spaceship.photo.key : 'https://res.cloudinary.com/dwpzuploo/image/upload/v1582206723/9Bwb9EA1NGbTAQsbqtaZNFA9.jpg', height: 300, width: 400, crop: :fill %>
       </a>
     </div>
 

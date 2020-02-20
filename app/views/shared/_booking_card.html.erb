@@ -1,7 +1,7 @@
 
 <% @user.bookings.each do |booking| %>
   <div class="card-ship m-2">
-    <%= image_tag booking.spaceship.main_pic_url, class: "spaceship-img", alt: "spaceship", width: 350 %>
+    <%= cl_image_tag booking.spaceship.photo.attached? ? booking.spaceship.photo.key : 'https://res.cloudinary.com/dwpzuploo/image/upload/v1582206723/9Bwb9EA1NGbTAQsbqtaZNFA9.jpg', height: 300, width: 350, crop: :fill %>
     <div class="card-ship-infos">
       <div>
         <h2><%= booking.spaceship.name %></h2>
