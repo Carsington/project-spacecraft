@@ -5,7 +5,7 @@
 <div class="row justify-content-center mb-4">
   <%= render 'shared/searchbar' %>
   
-   <% @spaceships.each do |spaceship| %>
+  <% @spaceships.each do |spaceship| %>
     <%= link_to spaceship_path(spaceship) do %>
       <div class="card-ship m-2">
         <%= cl_image_tag spaceship.photo.attached? ? spaceship.photo.key : 'https://res.cloudinary.com/dwpzuploo/image/upload/v1582206723/9Bwb9EA1NGbTAQsbqtaZNFA9.jpg', height: 300, width: 350, crop: :fill %>
