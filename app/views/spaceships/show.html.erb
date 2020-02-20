@@ -2,7 +2,9 @@
   <div class="">
     <h1>
       <%= @spaceship.name %>
-      <%= link_to "BOOK", new_spaceship_booking_path(@spaceship), class: "btn btn-success" %>
+      <% if current_user.id != @spaceship.user_id %>
+        <%= link_to "BOOK", new_spaceship_booking_path(@spaceship), class: "btn btn-success" %>
+      <% end %>
     </h1>
     <div class="spaceship-subhead">
       <h3 class="subtitle">(<%= @spaceship.address %>)</h3>
@@ -14,11 +16,13 @@
         <i class="fas fa-star-half-alt"></i>
       </div>
     </div>
-    <%= link_to "Edit", edit_spaceship_path(@spaceship) %>
+    <% if current_user.id == @spaceship.user_id %>
+      <%= link_to "Edit", edit_spaceship_path(@spaceship) %>
 
-    <%= link_to "Delete", spaceship_path(@spaceship),
-    method: :delete,
-    data: { confirm: "Are you sure?" } %>
+      <%= link_to "Delete", spaceship_path(@spaceship),
+      method: :delete,
+      data: { confirm: "Are you sure?" } %>
+    <% end %>
   </div>
 </div>
 
