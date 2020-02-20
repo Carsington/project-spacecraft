@@ -55,24 +55,30 @@
         <h3>Reviews</h3>
         <div class="reviews-list">
           <ul><% @spaceship.reviews.each do |review| %>
-              <li><%= review.comment %></li>
-              <li><%= review.stars %></li>
-              <i class="fas fa-star"></i>
+              <li><%= review.comment %> - <% review.stars.times do %>
+                <i class="fas fa-star"></i>
+               <% end %>
+             </li>
+
             <% end %>
           </ul>
         </div>
     </div>
       </div>
     </div>
-  
+
 
   <div class="col-4">
-    <div class="booking-form">
-      <%= render 'bookings/new' %>
-    </div>
-    <div class="review-form">
-      <%= render 'reviews/new' %>
-    </div>
+    <% if user_signed_in? && current_user.id != @spaceship.user_id %>
+      <div class="booking-form">
+        <%= render 'bookings/new' %>
+      </div>
+    <% end %>
+    <% if user_signed_in? && current_user.id != @spaceship.user_id %>
+      <div class="review-form">
+        <%= render 'reviews/new' %>
+      </div>
+    <% end %>
   </div>
 
 </div>
