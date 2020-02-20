@@ -1,19 +1,20 @@
-<div class="card m-5">
+<div class="row justify-content-center mt-4">
 
-  <h4 class="card-header text-center">About your splendid spaceship</h4>
+  <div class="card m-5">
+    <h4 class="card-header text-center">About your splendid spaceship</h4>
 
-  <div class="card-body">
-
-    <%= simple_form_for @spaceship do |f| %>
-      <%= f.input :name, placeholder: "Eddy Malou" %>
-      <%= f.input :address, placeholder: "107 Cours Balguerie Stuttenberg, 33300 Bordeaux" %>
-      <%= f.input :description, placeholder: "Tell us more about how splendid your spaceship is" %>
-      <%= f.input :unit_price %>
-      <%= f.input :size %>
-      <%= f.input :max_speed %>
-      <%= f.input :capacity %>
-      <%= f.submit "Add my spaceship", class: "btn btn-primary btn-block" %>
-    <% end %>
+    <div class="card-body">
+      <%= simple_form_for @spaceship do |f| %>
+        <%= f.input :name, placeholder: "Eddy Malou" %>
+        <%= f.input :address, placeholder: "107 Cours Balguerie Stuttenberg, 33300 Bordeaux" %>
+        <%= f.input :description, placeholder: "Tell us more about how splendid your spaceship is" %>
+        <%= f.input :unit_price %>
+        <%= f.input :size %>
+        <%= f.input :max_speed %>
+        <%= f.input :capacity %>
+        <%= f.submit "Add my spaceship", class: "btn btn-primary btn-block" %>
+      <% end %>
+    </div>
   </div>
 
 </div>
