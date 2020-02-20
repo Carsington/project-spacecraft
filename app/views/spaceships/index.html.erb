@@ -1,12 +1,12 @@
-<div class="row justify-content-center my-4">
-  <h1 class="m-0">Need a space ride? The best spacecrafts are here!</h1>
+<div class="row justify-content-center m-4">
+  <h1>Need a space ride? The best spacecrafts are here!</h1>
 </div>
 
 <div class="row justify-content-center mb-4">
   <%= render 'shared/searchbar' %>
 </div>
 
-<% if @query && @not_found%>
+<% if @query && @no_results%>
   <div class="row justify-content-center mb-4">
     <h3>No results found for <%= @query %></h3>
   </div>

@@ -1,5 +1,6 @@
 class Spaceship < ApplicationRecord
   include PgSearch::Model
+
   pg_search_scope :search,
     against: [ :name, :address, :description ],
     using: {
