@@ -3,10 +3,9 @@
     <div class="spaceship-header">
       <h1>
         <%= @spaceship.name %>
-        <%#= link_to "BOOK", new_spaceship_booking_path(@spaceship), class: "btn btn-success" %>
       </h1>
       <div class="edit-delete">
-        <% if current_user.id == @spaceship.user_id %>
+        <% if user_signed_in? && current_user.id == @spaceship.user_id %>
           <%= link_to "edit", edit_spaceship_path(@spaceship), class: "links" %> -
           <%= link_to "delete", spaceship_path(@spaceship),
           method: :delete,
