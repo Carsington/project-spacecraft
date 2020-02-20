@@ -1,6 +1,6 @@
 <%= simple_form_for :search, url: spaceships_path, method: :get do |f| %>
   <div class="d-flex justify-content-center">
-    <%= f.input_field :query, label: false, placeholder: 'Find your dream spacecraft', class: "w-200", maxlength: 50 %>
+    <%= f.input_field :query, label: false, placeholder: 'Find your dream spacecraft', class: "pl-2 w-200", maxlength: 50 %>
     <%= f.button :submit, '🔍'.html_safe, class: "btn btn-primary" %> <!-- <i class="fas fa-search"></i> -->
   </div>
 <% end %>
