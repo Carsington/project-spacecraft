@@ -14,7 +14,8 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to spaceship_path(@spaceship)
     else
-      render :new
+      @booking = Booking.new
+      render :template => 'spaceships/show'
     end
   end
 
