@@ -1,6 +1,12 @@
 @import "home";
 
 // STICKY HEADER
+.spaceship-sticky-header {
+  position: sticky;
+  top: 80px;
+  z-index: 3;
+}
+
 .spaceship-header {
   display: flex;
   align-items: center;
@@ -49,7 +55,6 @@
 .description p {
   text-align: justify;
 }
-
 
 // MEDIA QUERIES
 @media(max-width: 990px) {

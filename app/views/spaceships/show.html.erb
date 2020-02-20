@@ -1,9 +1,8 @@
-<div class="row">
-  <div class="col-12 spaceship-sticky-header">
+<div class="row spaceship-sticky-header">
+  <div class="col-12">
     <div class="spaceship-header">
       <h1>
         <%= @spaceship.name %>
-        <%#= link_to "BOOK", new_spaceship_booking_path(@spaceship), class: "btn btn-success" %>
       </h1>
       <div class="edit-delete">
         <% if current_user.id == @spaceship.user_id %>
