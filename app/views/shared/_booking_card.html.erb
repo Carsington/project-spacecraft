@@ -1,16 +1,18 @@
 
 <% @user.bookings.each do |booking| %>
-  <div class="card-ship m-2">
-    <%= cl_image_tag booking.spaceship.photo.attached? ? booking.spaceship.photo.key : 'https://res.cloudinary.com/dwpzuploo/image/upload/v1582206723/9Bwb9EA1NGbTAQsbqtaZNFA9.jpg', height: 300, width: 350, crop: :fill %>
-    <div class="card-ship-infos">
-      <div>
-        <h2><%= booking.spaceship.name %></h2>
-        <p><%= booking.spaceship.description %></p>
+  <%= link_to spaceship_path(booking.spaceship) do %>
+    <div class="card-ship m-2">
+      <%= cl_image_tag booking.spaceship.photo.attached? ? booking.spaceship.photo.key : 'https://res.cloudinary.com/dwpzuploo/image/upload/v1582206723/9Bwb9EA1NGbTAQsbqtaZNFA9.jpg', height: 300, width: 350, crop: :fill %>
+      <div class="card-ship-infos">
+        <div>
+          <h2><%= booking.spaceship.name %></h2>
+          <p><%= booking.spaceship.description %></p>
+        </div>
+        <h2 class="card-ship-pricing"><%= booking.spaceship.unit_price %>€</h2>
+        <img src="https://pbs.twimg.com/profile_images/794107415876747264/g5fWe6Oh_400x400.jpg" class="card-ship-user avatar-bordered" />
       </div>
-      <h2 class="card-ship-pricing"><%= booking.spaceship.unit_price %>€</h2>
-      <img src="https://pbs.twimg.com/profile_images/794107415876747264/g5fWe6Oh_400x400.jpg" class="card-ship-user avatar-bordered" />
     </div>
-  </div>
+  <% end %>
 <% end %>
 
 

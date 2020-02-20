@@ -1,0 +1,14 @@
+<div class="card m-5">
+
+  <h4 class="card-header text-center">Review your trip with <%= @spaceship.name %></h4>
+
+  <div class="card-body">
+
+    <%= simple_form_for([@spaceship, @review]) do |f| %>
+      <%= f.input :comment %>
+      <%= f.input :stars %>
+      <%= f.submit "Post Review", class: "btn btn-primary btn-block" %>
+    <% end %>
+  </div>
+
+</div>
