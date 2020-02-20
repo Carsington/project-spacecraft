@@ -2,7 +2,10 @@
   overflow: hidden;
   background: rgba(0, 44, 69, 0.6);
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  width: 400px;
+  min-width: 300px;
+  max-width: 400px;
+  min-height: 200px;
+  max-height: 300px;
   border: 1px solid #0a5688;
 
   &:hover .mybuttonoverlap {
@@ -43,6 +46,8 @@
   opacity: .7;
   margin: 0;
   font-family: 'Electrolize', sans-serif;
+  max-width: 65%;
+  overflow: hidden;
 }
 
 
@@ -59,4 +64,10 @@
   right: 16px;
   top: -20px;
   width: 40px;
+}
+
+.card-ship-infos .card-ship-pricing {
+  position: absolute;
+  right: 12px;
+  top: 50px;
 }

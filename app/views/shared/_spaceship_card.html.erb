@@ -1,20 +1,20 @@
-<div class="container">
-  <div class="row">
-      <% @user.spaceships.each do |spaceship| %>
-        <div class="card-ship col-md-3">
-          <img src=<%= "#{spaceship.main_pic_url}" %> />
-          <div class="card-ship-infos">
-            <div>
-              <h2><%= spaceship.name %></h2>
-              <p><%= spaceship.description %></p>
-            </div>
-            <h2 class="card-ship-pricing"><%= spaceship.unit_price %>€</h2>
-            <img src="https://pbs.twimg.com/profile_images/794107415876747264/g5fWe6Oh_400x400.jpg" class="card-ship-user avatar-bordered" />
-          </div>
+
+<% @user.spaceships.each do |spaceship| %>
+  <%= link_to spaceship_path(spaceship) do %>
+    <div class="card-ship m-2">
+      <%= image_tag spaceship.main_pic_url, class: "spaceship-img", alt: "spaceship", width: 350 %>
+      <div class="card-ship-infos">
+        <div>
+          <h2><%= spaceship.name %></h2>
+          <p><%= spaceship.description.first(80) %></p>
         </div>
-      <% end %>
-  </div>
-</div>
+        <h2 class="card-ship-pricing"><%= spaceship.unit_price %>€</h2>
+        <img src="https://pbs.twimg.com/profile_images/794107415876747264/g5fWe6Oh_400x400.jpg" class="card-ship-user avatar-bordered" />
+      </div>
+    </div>
+  <% end %>
+<% end %>
+
 <!-- pour image hostée : <#%= cl_image_tag(@cocktails.photo.key, height: 300, width: 400, crop: :fill) %> -->
 
 <!-- <div class="d-flex justify-content-around flex-wrap">
