@@ -4,6 +4,15 @@
 
 <div class="row justify-content-center mb-4">
   <%= render 'shared/searchbar' %>
+</div>
+
+<% if @query && @not_found%>
+  <div class="row justify-content-center mb-4">
+    <h3>No results found for <%= @query %></h3>
+  </div>
+<% end %>
+
+<div class="row justify-content-center mb-4">
 
   <% @spaceships.each do |spaceship| %>
     <%= link_to spaceship_path(spaceship), class:"card-link" do %>
@@ -21,4 +30,5 @@
       </div>
     <% end %>
   <% end %>
+
 </div>

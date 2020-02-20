@@ -5,8 +5,14 @@ class SpaceshipsController < ApplicationController
 
   def index
     if params[:search].present? && params[:search][:query].present?
-      @spaceships = Spaceship.search(params[:search][:query])
+      @query = params[:search][:query]
+      @spaceships = Spaceship.search(@query)
     else
+      @spaceships = Spaceship.all
+    end
+
+    if @spaceships.empty?
+      @not_found = true
       @spaceships = Spaceship.all
     end
   end
