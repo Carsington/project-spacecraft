@@ -1,12 +1,9 @@
-<div class="container">
-  <h1>Edit <%= @spaceship.name %></h1>
-
+<h1>Edit <%= @spaceship.name %></h1>
   <%= simple_form_for @spaceship do |f| %>
     <%= f.input :name %>
     <%= f.input :address %>
     <%= f.input :description %>
-    <!-- TODO : delete the next line -->
-    <%= f.input :main_pic_url %>
+    <%= f.input :photo, as: :file %>
     <%= f.input :unit_price %>
     <%= f.input :size %>
     <%= f.input :max_speed %>

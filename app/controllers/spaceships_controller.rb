@@ -3,12 +3,17 @@ class SpaceshipsController < ApplicationController
   before_action :set_spaceship, only: [ :show, :edit, :update, :destroy ]
 
   def index
-    @spaceships = Spaceship.all
+    if params[:search].present? && params[:search][:query].present?
+      @spaceships = Spaceship.search(params[:search][:query])
+    else
+      @spaceships = Spaceship.all
+    end
   end
 
   def show
     @spaceship = Spaceship.find(params[:id])
     @booking = Booking.new
+    @review = Review.new
   end
 
   def new
@@ -52,7 +57,7 @@ class SpaceshipsController < ApplicationController
 
   def spaceship_params
     params.require(:spaceship).permit(
-      :name, :address, :description, :main_pic_url,
+      :name, :address, :description, :photo,
       :unit_price, :size, :max_speed, :capacity)
   end
 end

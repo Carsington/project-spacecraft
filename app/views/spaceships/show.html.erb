@@ -5,7 +5,7 @@
         <%= @spaceship.name %>
       </h1>
       <div class="edit-delete">
-        <% if current_user.id == @spaceship.user_id %>
+        <% if user_signed_in? && current_user.id == @spaceship.user_id %>
           <%= link_to "edit", edit_spaceship_path(@spaceship), class: "links" %> -
           <%= link_to "delete", spaceship_path(@spaceship),
           method: :delete,
@@ -34,7 +34,7 @@
   <div class="col-8">
     <div class="main-pic">
       <a href="https://www.youtube.com/watch?v=ma7TL8jJT0A">
-        <%= image_tag @spaceship.main_pic_url, alt: "spaceship", class: "main-pic-img" %>
+        <%= cl_image_tag @spaceship.photo.attached? ? @spaceship.photo.key : 'https://res.cloudinary.com/dwpzuploo/image/upload/v1582206723/9Bwb9EA1NGbTAQsbqtaZNFA9.jpg', height: 300, width: 400, crop: :fill %>
       </a>
     </div>
 
@@ -51,19 +51,27 @@
           <p><i class="fas fa-users"></i> <%= @spaceship.capacity %> passengers</p>
         </div>
       </div>
+      <div class="reviews">
+        <h3>Reviews</h3>
+        <div class="reviews-list">
+          <ul><% @spaceship.reviews.each do |review| %>
+              <li><%= review.comment %></li>
+              <li><%= review.stars %></li>
+              <i class="fas fa-star"></i>
+            <% end %>
+          </ul>
+        </div>
     </div>
-
-    <div class="reviews" id="reviews-part">
-      <h3>Reviews</h3>
-      <div class="reviews-list">
-
       </div>
     </div>
-  </div>
+  
 
   <div class="col-4">
     <div class="booking-form">
       <%= render 'bookings/new' %>
+    </div>
+    <div class="review-form">
+      <%= render 'reviews/new' %>
     </div>
   </div>
 
