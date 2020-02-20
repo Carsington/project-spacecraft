@@ -1,23 +1,26 @@
-<div class="card m-5">
+<div class="row justify-content-center mt-4">
 
-  <h4 class="card-header text-center">Log in</h4>
+  <div class="card m-5 w-25">
 
-  <div class="card-body">
+    <h4 class="card-header text-center">Log in</h4>
 
-    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    
-      <%= f.error_notification %>
+    <div class="card-body">
 
-      <%= f.input :email, required: true, autofocus: true, input_html: { autocomplete: "email" } %>
-      <%= f.input :password, required: true, input_html: { autocomplete: "current-password" } %>
-      <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+      <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      
+        <%= f.error_notification %>
 
-      <%= f.button :submit, "Log in", class: "btn btn-primary btn-block" %>
-    <% end %>
+        <%= f.input :email, required: true, autofocus: true, input_html: { autocomplete: "email" } %>
+        <%= f.input :password, required: true, input_html: { autocomplete: "current-password" } %>
+        <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+
+        <%= f.button :submit, "Log in", class: "btn btn-primary btn-block" %>
+      <% end %>
+    </div>
+
+    <div class="card-body alternatives text-center pt-0">
+      <%= render "devise/shared/links" %>
+    </div>
+
   </div>
-
-  <div class="card-body alternatives text-center pt-0">
-    <%= render "devise/shared/links" %>
-  </div>
-
 </div>
