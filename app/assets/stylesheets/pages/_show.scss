@@ -30,6 +30,10 @@
     margin: 0 16px;
     padding-top: 4px;
   }
+
+  a:hover {
+    text-decoration: none;
+  }
 }
 
 // MAIN PICTURE
@@ -39,4 +43,23 @@
 
 .main-pic-img {
   max-width: 600px;
+}
+
+// DESCRIPTION
+.description p {
+  text-align: justify;
+}
+
+
+// MEDIA QUERIES
+@media(max-width: 990px) {
+  .main-pic-img {
+    max-width: 400px;
+  }
+}
+
+@media(max-width: 768px) {
+  .main-pic-img {
+    max-width: 300px;
+  }
 }
