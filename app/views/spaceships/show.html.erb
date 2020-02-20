@@ -34,7 +34,7 @@
   <div class="col-8">
     <div class="main-pic">
       <a href="https://www.youtube.com/watch?v=ma7TL8jJT0A">
-        <%= cl_image_tag @spaceship.photo.attached? ? @spaceship.photo.key : 'https://res.cloudinary.com/dwpzuploo/image/upload/v1582206723/9Bwb9EA1NGbTAQsbqtaZNFA9.jpg', height: 300, width: 400, crop: :fill %>
+        <%= cl_image_tag @spaceship.photo.attached? ? @spaceship.photo.key : 'https://res.cloudinary.com/dwpzuploo/image/upload/v1582206723/9Bwb9EA1NGbTAQsbqtaZNFA9.jpg', class: "main-pic-img" %>
       </a>
     </div>
 
@@ -54,17 +54,17 @@
       <div class="reviews">
         <h3>Reviews</h3>
         <div class="reviews-list">
-          <ul><% @spaceship.reviews.each do |review| %>
+          <ul>
+            <% @spaceship.reviews.each do |review| %>
               <li><%= review.comment %></li>
               <li><%= review.stars %></li>
               <i class="fas fa-star"></i>
             <% end %>
           </ul>
         </div>
-    </div>
       </div>
     </div>
-  
+  </div>
 
   <div class="col-4">
     <div class="booking-form">
@@ -74,5 +74,4 @@
       <%= render 'reviews/new' %>
     </div>
   </div>
-
 </div>
