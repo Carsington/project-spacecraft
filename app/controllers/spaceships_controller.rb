@@ -1,7 +1,9 @@
 class SpaceshipsController < ApplicationController
-
   skip_before_action :authenticate_user!, only: [ :index, :show ]
   before_action :set_spaceship, only: [ :show, :edit, :update, :destroy ]
+
+  SPACESHIP_IMAGES = [
+    "07_ljxygu", "04_rtymsz", "01_x67kdi", "06_q2rsfn", "05_p1r7ub", "08_fpsmhu", "03_dvrozk", "02_dwhcf8"]
 
   def index
     if params[:search].present? && params[:search][:query].present?
@@ -12,7 +14,7 @@ class SpaceshipsController < ApplicationController
     end
 
     if @spaceships.empty?
-      @not_found = true
+      @no_results = true
       @spaceships = Spaceship.all
     end
   end
