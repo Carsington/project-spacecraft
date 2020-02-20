@@ -6,13 +6,16 @@
         <%#= link_to "BOOK", new_spaceship_booking_path(@spaceship), class: "btn btn-success" %>
       </h1>
       <div class="edit-delete">
-        <%= link_to "edit", edit_spaceship_path(@spaceship), class: "links" %> -
-        <%= link_to "delete", spaceship_path(@spaceship),
-        method: :delete,
-        data: { confirm: "Are you sure?" },
-        class: "links" %>
+        <% if current_user.id == @spaceship.user_id %>
+          <%= link_to "edit", edit_spaceship_path(@spaceship), class: "links" %> -
+          <%= link_to "delete", spaceship_path(@spaceship),
+          method: :delete,
+          data: { confirm: "Are you sure?" },
+          class: "links" %>
+        <% end %>
       </div>
     </div>
+
     <div class="spaceship-subhead">
       <h3 class="subtitle">(<%= @spaceship.address %>)</h3>
       <a href="#reviews-part">
@@ -60,7 +63,9 @@
   </div>
 
   <div class="col-4">
-    <p>Ur kabukk gwyaaaag mumwa hnn-rowr wua rarr rarr.Ur kabukk gwyaaaag mumwa hnn-rowr wua rarr rarr.Ur kabukk gwyaaaag mumwa hnn-rowr wua rarr rarr.Ur kabukk gwyaaaag mumwa hnn-rowr wua rarr rarr.Ur kabukk gwyaaaag mumwa hnn-rowr wua rarr rarr.Ur kabukk gwyaaaag mumwa hnn-rowr wua rarr rarr.Ur kabukk gwyaaaag mumwa hnn-rowr wua rarr rarr.Ur kabukk gwyaaaag mumwa hnn-rowr wua rarr rarr.Ur kabukk gwyaaaag mumwa hnn-rowr wua rarr rarr.Ur kabukk gwyaaaag mumwa hnn-rowr wua rarr rarr.Ur kabukk gwyaaaag mumwa hnn-rowr wua rarr rarr.Ur kabukk gwyaaaag mumwa hnn-rowr wua rarr rarr.Ur kabukk gwyaaaag mumwa hnn-rowr wua rarr rarr.Ur kabukk gwyaaaag mumwa hnn-rowr wua rarr rarr.Ur kabukk gwyaaaag mumwa hnn-rowr wua rarr rarr.Ur kabukk gwyaaaag mumwa hnn-rowr wua rarr rarr.Ur kabukk gwyaaaag mumwa hnn-rowr wua rarr rarr.Ur kabukk gwyaaaag mumwa hnn-rowr wua rarr rarr.Ur kabukk gwyaaaag mumwa hnn-rowr wua rarr rarr.Ur kabukk gwyaaaag mumwa hnn-rowr wua rarr rarr.</p>
+    <div class="booking-form">
+      <%= render 'bookings/new' %>
+    </div>
   </div>
 
 </div>
