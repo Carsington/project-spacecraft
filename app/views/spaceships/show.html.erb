@@ -1,5 +1,5 @@
-<div class="container-spaceship">
-  <div class="head">
+<div class="row ">
+  <div class="">
     <h1>
       <%= @spaceship.name %>
       <%= link_to "BOOK", new_spaceship_booking_path(@spaceship), class: "btn btn-success" %>
@@ -17,33 +17,43 @@
     <%= link_to "Edit", edit_spaceship_path(@spaceship) %>
 
     <%= link_to "Delete", spaceship_path(@spaceship),
-          method: :delete,
-          data: { confirm: "Are you sure?" } %>
+    method: :delete,
+    data: { confirm: "Are you sure?" } %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-8">
     <div class="main-pic">
       <a href="https://www.youtube.com/watch?v=ma7TL8jJT0A">
         <%= image_tag @spaceship.main_pic_url, alt: "spaceship", width: 400 %>
       </a>
     </div>
-  </div>
 
-  <div class="second-container">
-    <div class="description">
-      <h3>Description</h3>
-      <p><%= @spaceship.description %></p>
-    </div>
-    <div class="features">
-      <h3>Features</h3>
-      <div class="features-list">
-        <p><i class="fas fa-ruler-horizontal"></i> <%= @spaceship.size %> m</p>
-        <p><i class="fas fa-tachometer-alt"></i> <%= @spaceship.max_speed %> pc/day</p>
-        <p><i class="fas fa-users"></i> <%= @spaceship.capacity %> passengers</p>
+    <div class="second-container">
+      <div class="description">
+        <h3>Description</h3>
+        <p><%= @spaceship.description %></p>
+      </div>
+      <div class="features">
+        <h3>Features</h3>
+        <div class="features-list">
+          <p><i class="fas fa-ruler-horizontal"></i> <%= @spaceship.size %> m</p>
+          <p><i class="fas fa-tachometer-alt"></i> <%= @spaceship.max_speed %> pc/day</p>
+          <p><i class="fas fa-users"></i> <%= @spaceship.capacity %> passengers</p>
+        </div>
+      </div>
+      <div class="reviews">
+        <h3>Reviews</h3>
+        <div class="reviews-list">
+
+        </div>
       </div>
     </div>
-    <div class="reviews">
-      <h3>Reviews</h3>
-      <div class="reviews-list">
-
-      </div>
-    </div>
   </div>
+
+  <div class="col-4">
+    <p>Ur kabukk gwyaaaag mumwa hnn-rowr wua rarr rarr.Ur kabukk gwyaaaag mumwa hnn-rowr wua rarr rarr.Ur kabukk gwyaaaag mumwa hnn-rowr wua rarr rarr.Ur kabukk gwyaaaag mumwa hnn-rowr wua rarr rarr.Ur kabukk gwyaaaag mumwa hnn-rowr wua rarr rarr.Ur kabukk gwyaaaag mumwa hnn-rowr wua rarr rarr.Ur kabukk gwyaaaag mumwa hnn-rowr wua rarr rarr.Ur kabukk gwyaaaag mumwa hnn-rowr wua rarr rarr.Ur kabukk gwyaaaag mumwa hnn-rowr wua rarr rarr.Ur kabukk gwyaaaag mumwa hnn-rowr wua rarr rarr.Ur kabukk gwyaaaag mumwa hnn-rowr wua rarr rarr.Ur kabukk gwyaaaag mumwa hnn-rowr wua rarr rarr.Ur kabukk gwyaaaag mumwa hnn-rowr wua rarr rarr.Ur kabukk gwyaaaag mumwa hnn-rowr wua rarr rarr.Ur kabukk gwyaaaag mumwa hnn-rowr wua rarr rarr.Ur kabukk gwyaaaag mumwa hnn-rowr wua rarr rarr.Ur kabukk gwyaaaag mumwa hnn-rowr wua rarr rarr.Ur kabukk gwyaaaag mumwa hnn-rowr wua rarr rarr.Ur kabukk gwyaaaag mumwa hnn-rowr wua rarr rarr.Ur kabukk gwyaaaag mumwa hnn-rowr wua rarr rarr.</p>
+  </div>
+
 </div>
