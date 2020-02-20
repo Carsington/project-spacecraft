@@ -55,16 +55,17 @@
       <div class="reviews">
         <h3>Reviews</h3>
         <div class="reviews-list">
-          <ul><% @spaceship.reviews.each do |review| %>
+          <ul>
+            <% @spaceship.reviews.each do |review| %>
               <li><%= review.comment %></li>
               <li><%= review.stars %></li>
               <i class="fas fa-star"></i>
             <% end %>
           </ul>
         </div>
-    </div>
       </div>
     </div>
+  </div>
 
 
   <div class="col-4">
@@ -75,5 +76,4 @@
       <%= render 'reviews/new' %>
     </div>
   </div>
-
 </div>
