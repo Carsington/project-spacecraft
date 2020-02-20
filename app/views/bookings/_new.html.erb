@@ -1,14 +1,16 @@
-<div class="card m-5">
+<div class="row justify-content-center mt-4">
 
-  <h4 class="card-header text-center">Book a trip with <%= @spaceship.name %></h4>
+  <div class="card m-5">
+    <h4 class="card-header text-center">Book a trip with <%= @spaceship.name %></h4>
 
-  <div class="card-body">
+    <div class="card-body">
 
-    <%= simple_form_for([@spaceship, @booking]) do |f| %>
-      <%= f.input :start_date %>
-      <%= f.input :end_date %>
-      <%= f.submit "Book now!", class: "btn btn-primary btn-block" %>
-    <% end %>
+      <%= simple_form_for([@spaceship, @booking]) do |f| %>
+        <%= f.input :start_date %>
+        <%= f.input :end_date %>
+        <%= f.submit "Book now!", class: "btn btn-primary btn-block" %>
+      <% end %>
+    </div>
   </div>
-
+  
 </div>
