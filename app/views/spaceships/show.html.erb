@@ -34,7 +34,8 @@
   <div class="col-8">
     <div class="main-pic">
       <a href="https://www.youtube.com/watch?v=ma7TL8jJT0A">
-        <%= cl_image_tag @spaceship.photo.attached? ? @spaceship.photo.key : 'https://res.cloudinary.com/dwpzuploo/image/upload/v1582206723/9Bwb9EA1NGbTAQsbqtaZNFA9.jpg', height: 300, width: 400, crop: :fill %>
+        <% random_img = ["07_ljxygu", "04_rtymsz", "01_x67kdi", "06_q2rsfn", "05_p1r7ub", "08_fpsmhu", "03_dvrozk", "02_dwhcf8"] %>
+        <%= cl_image_tag @spaceship.photo.attached? ? @spaceship.photo.key : random_img.sample, width: 350 %>
       </a>
     </div>
 
@@ -54,25 +55,29 @@
       <div class="reviews">
         <h3>Reviews</h3>
         <div class="reviews-list">
-          <ul><% @spaceship.reviews.each do |review| %>
-              <li><%= review.comment %></li>
-              <li><%= review.stars %></li>
-              <i class="fas fa-star"></i>
+          <ul>
+            <% @spaceship.reviews.each do |review| %>
+              <li><%= review.comment %> - <% review.stars.times do %>
+                <i class="fas fa-star"></i>
+               <% end %>
+              </li>
             <% end %>
           </ul>
         </div>
-    </div>
       </div>
-    </div>
-  
-
-  <div class="col-4">
-    <div class="booking-form">
-      <%= render 'bookings/new' %>
-    </div>
-    <div class="review-form">
-      <%= render 'reviews/new' %>
     </div>
   </div>
 
+  <div class="col-4">
+    <% if user_signed_in? && current_user.id != @spaceship.user_id %>
+      <div class="booking-form">
+        <%= render 'bookings/new' %>
+      </div>
+    <% end %>
+    <% if user_signed_in? && current_user.id != @spaceship.user_id %>
+      <div class="review-form">
+        <%= render 'reviews/new' %>
+      </div>
+    <% end %>
+  </div>
 </div>
