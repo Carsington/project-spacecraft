@@ -1,55 +1,23 @@
-<h1 class="mb-3">Need a space ride? The best spacecrafts are here!</h1>
+<div class="row justify-content-center my-4">
+  <h1 class="m-0">Need a space ride? The best spacecrafts are here!</h1>
+</div>
 
-<% @spaceships.each do |spaceship| %>
-  <%= link_to spaceship_path(spaceship) do %>
-    <div class="card-ship m-2">
-      <%#= link_to "Book Now", new_spaceship_booking_path(spaceship), class: 'mybuttonoverlap btn btn-info' %>
-      <%= image_tag spaceship.main_pic_url, class: "spaceship-img", alt: "spaceship", width: 350 %>
-      <div class="card-ship-infos">
-        <div>
-          <h2><%= spaceship.name %></h2>
-          <p><%= spaceship.description.first(80) %></p>
-        </div>
-        <h2 class="card-ship-pricing"><%= spaceship.unit_price %>€</h2>
-        <img src="https://pbs.twimg.com/profile_images/794107415876747264/g5fWe6Oh_400x400.jpg" class="card-ship-user avatar-bordered" />
-      </div>
-    </div>
-  <% end %>
-<% end %>
-
-<!--   <div class="spaceships-list">
-    <% @spaceships.each do |spaceship| %>
-      <%= link_to spaceship_path(spaceship) do %>
-        <div class="card-spaceship">
-          <%= image_tag spaceship.main_pic_url, class: "spaceship-img", alt: "spaceship", width: 350 %>
-          <div class="card-spaceship-info">
-            <div>
-              <h2><%= spaceship.name %></h2>
-              <p><%= spaceship.description %></p>
-            </div>
-            <h2 class="card-spaceship-pricing"><%= spaceship.unit_price %>$</h2>
-            <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-spaceship-user avatar-bordered" />
+<div class="row justify-content-center mb-4">
+  <%= render 'shared/searchbar' %>
+  
+   <% @spaceships.each do |spaceship| %>
+    <%= link_to spaceship_path(spaceship) do %>
+      <div class="card-ship m-2">
+        <%= cl_image_tag spaceship.photo.attached? ? spaceship.photo.key : 'https://res.cloudinary.com/dwpzuploo/image/upload/v1582206723/9Bwb9EA1NGbTAQsbqtaZNFA9.jpg', height: 300, width: 350, crop: :fill %>
+        <div class="card-ship-infos">
+          <div>
+            <h2><%= spaceship.name %></h2>
+            <p><%= spaceship.description.first(80) %></p>
           </div>
+          <h2 class="card-ship-pricing"><%= spaceship.unit_price %>€</h2>
+          <img src="https://pbs.twimg.com/profile_images/794107415876747264/g5fWe6Oh_400x400.jpg" class="card-ship-user avatar-bordered" />
         </div>
-      <% end %>
-    <% end %>
-  </div>
-</div> -->
-
-
-<!-- ---------- DO NOT TOUCH ---------- -->
-<!-- <div class="container">
-  <h1>Spaceships index</h1>
-
-  <div class="spaceships-list">
-    <% @spaceships.each do |spaceship| %>
-      <%= link_to spaceship_path(spaceship) do %>
-      <div class="card-spaceship">
-        <h3><%= spaceship.name %></h3>
-        <p><%= spaceship.unit_price %> units/day</p>
       </div>
-      <% end %>
     <% end %>
-  </div>
-</div> -->
-<!-- ---------------------------------- -->
+  <% end %>
+</div>

@@ -3,6 +3,8 @@ class Spaceship < ApplicationRecord
   has_many :bookings, dependent: :destroy
   has_many :reviews, dependent: :destroy
 
+  has_one_attached :photo
+
   validates :name, :address, :description, :unit_price, :size,
             :max_speed, :capacity, presence: true
   validates :name, uniqueness: true, length: { minimum: 5 }
