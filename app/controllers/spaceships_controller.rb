@@ -7,6 +7,8 @@ class SpaceshipsController < ApplicationController
   end
 
   def show
+    @spaceship = Spaceship.find(params[:id])
+    @booking = Booking.new
   end
 
   def new
@@ -18,7 +20,7 @@ class SpaceshipsController < ApplicationController
     @spaceship.user = current_user
 
     @spaceship.main_pic_url = 'generic_spaceships/02.jpg'
-    
+
     if @spaceship.save
       redirect_to @spaceship
     else
