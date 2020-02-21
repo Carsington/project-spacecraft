@@ -1,96 +1,106 @@
-<div class="row spaceship-sticky-header">
-  <div class="col-12">
-    <div class="spaceship-header">
-      <h1>
-        <%= @spaceship.name %>
-      </h1>
-      <div class="edit-delete">
+<div class="container">
+
+  <div class="row spaceship-sticky-header my-3">
+    <div class="col-12">
+
+      <div class="spaceship-header">
+        <h1><%= @spaceship.name %></h1>
+        
         <% if user_signed_in? && current_user.id == @spaceship.user_id %>
-          <%= link_to "edit", edit_spaceship_path(@spaceship), class: "links" %> -
-          <%= link_to "delete", spaceship_path(@spaceship),
-          method: :delete,
-          data: { confirm: "Are you sure?" },
-          class: "links" %>
+          <div class="edit-delete">
+            <%= link_to "edit", edit_spaceship_path(@spaceship), class: "links" %> -
+            <%= link_to "delete", spaceship_path(@spaceship),
+            method: :delete,
+            data: { confirm: "Are you sure?" },
+            class: "links" %>
+          </div>
         <% end %>
-      </div>
-    </div>
 
-    <div class="spaceship-subhead">
-      <h3 class="subtitle">(<%= @spaceship.address %>)</h3>
-      <a href="#reviews-part">
-        <div class="stars">
-          <% if @no_reviews %>
-            <p>Be the first to add a review!</p>
-          <% else %>
-            <% @full_stars.times do %>
-              <i class="fas fa-star"></i>
-            <% end %>
-            <% @empy_stars.times do %>
-              <i class="far fa-star"></i>
-            <% end %>
-          <% end %>
-
-        </div>
-      </a>
-    </div>
-  </div>
-</div>
-
-<div class="row row-content">
-  <div class="col-8">
-    <div class="main-pic">
-      <% random_img = ["07_ljxygu", "04_rtymsz", "01_x67kdi", "06_q2rsfn", "05_p1r7ub", "08_fpsmhu", "03_dvrozk", "02_dwhcf8"] %>
-      <%= cl_image_tag @spaceship.photo.attached? ? @spaceship.photo.key : random_img.sample, width: 350 %>
-    </div>
-
-    <div class="spaceship-infos">
-      <div class="description">
-        <h3>Description</h3>
-        <p><%= @spaceship.description %></p>
       </div>
-      <div class="features">
-        <h3>Features</h3>
-        <div class="features-list">
-          <p><i class="fas fa-ruler-horizontal"></i> <%= @spaceship.size %> m</p>
-          <p><i class="fas fa-tachometer-alt"></i> <%= @spaceship.max_speed %> pc/day</p>
-          <p><i class="fas fa-users"></i> <%= @spaceship.capacity %> passengers</p>
-        </div>
-      </div>
-      <div class="reviews">
-        <h3>Reviews</h3>
-         <% if user_signed_in? && current_user.id != @spaceship.user_id %>
-      <div class="review-form">
-        <%= render 'reviews/new' %>
-      </div>
-    <% end %>
-        <div class="reviews-list">
-          <ul>
-            <% @spaceship.reviews.each do |review| %>
-              <li><%= review.user.nickname %> - <% review.stars.times do %>
+
+      <div class="spaceship-subhead">
+        <h3 class="subtitle">(<%= @spaceship.address %>)</h3>
+
+        <a href="#reviews-part">
+          <div class="stars">
+            <% if @no_reviews %>
+              <p>Be the first to add a review!</p>
+            <% else %>
+              <% @full_stars.times do %>
                 <i class="fas fa-star"></i>
-               <% end %>
-               <br>
-               "<%= review.comment %>"
-              </li>
-              <br>
+              <% end %>
+              <% @empy_stars.times do %>
+                <i class="far fa-star"></i>
+              <% end %>
             <% end %>
-          </ul>
+          </div>
+        </a>
+
+      </div>
+
+    </div>
+  </div>
+
+  <div class="row row-content">
+    <div class="col-7">
+
+      <div class="main-pic">
+        <% random_img = ["07_ljxygu", "04_rtymsz", "01_x67kdi", "06_q2rsfn", "05_p1r7ub", "08_fpsmhu", "03_dvrozk", "02_dwhcf8"] %>
+        <%= cl_image_tag @spaceship.photo.attached? ? @spaceship.photo.key : random_img.sample, width: 350 %>
+      </div>
+
+      <div class="spaceship-infos">
+        <div class="description">
+          <h3>Description</h3>
+          <p><%= @spaceship.description %></p>
+        </div>
+
+        <div class="features">
+          <h3>Features</h3>
+          <div class="features-list">
+            <p><i class="fas fa-ruler-horizontal"></i> <%= @spaceship.size %> m</p>
+            <p><i class="fas fa-tachometer-alt"></i> <%= @spaceship.max_speed %> pc/day</p>
+            <p><i class="fas fa-users"></i> <%= @spaceship.capacity %> passengers</p>
+          </div>
+        </div>
+
+        <div class="reviews">
+          <h3>Reviews</h3>
+
+          <div class="reviews-list my-3">
+            <ul><% @spaceship.reviews.each do |review| %>
+                <li>
+                  <%= review.user.nickname %> - <% review.stars.times do %>
+                    <i class="fas fa-star"></i>
+                  <% end %>
+                  <br>
+                  "<%= review.comment %>"
+                </li>
+                <br>
+              <% end %></ul>
+          </div>
+
+          <% if user_signed_in? && current_user.id != @spaceship.user_id %>
+            <div class="review-form">
+              <%= render 'reviews/new' %>
+            </div>
+          <% end %>
         </div>
       </div>
-    </div>
-  </div>
 
-  <div class="col-4">
-    <% if user_signed_in? && current_user.id != @spaceship.user_id %>
-<div class="booking-form">
+    </div>
+
+    <div class="col-5">
+      <% if user_signed_in? && current_user.id != @spaceship.user_id %>
+        <div class="booking-form">
           <div class="widget-content" data-unavailable="<%= @spaceship.unavailable_dates.to_json %>">
-      <hr>
-
-        <div class="dates">
-        <%= render 'bookings/new' %>
-      </div>
-      </div>
+            <hr>
+            <div class="dates"><%= render 'bookings/new' %></div>
+          </div>
+        </div>
+      <% end %>
     </div>
-    <% end %>
+
   </div>
+
 </div>
