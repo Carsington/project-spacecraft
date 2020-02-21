@@ -2,7 +2,7 @@
   <h1>Need a space ride? The best spacecrafts are here!</h1>
 </div>
 
-<div class="row justify-content-center mb-4">
+<div class="row justify-content-center mb-4 sticky-searchbar-row">
   <%= render 'shared/searchbar' %>
 </div>
 
@@ -23,7 +23,7 @@
             <h2><%= spaceship.name %></h2>
             <p><%= spaceship.description.first(80) %></p>
           </div>
-          <h2 class="card-ship-pricing"><i class="fab fa-ethereum"></i> <%= spaceship.unit_price %></h2>
+          <h2 class="card-ship-pricing"><%= spaceship.unit_price %> <i class="fab fa-ethereum"></i></h2>
           <img src="https://pbs.twimg.com/profile_images/794107415876747264/g5fWe6Oh_400x400.jpg" class="card-ship-user avatar-bordered" />
         </div>
       </div>

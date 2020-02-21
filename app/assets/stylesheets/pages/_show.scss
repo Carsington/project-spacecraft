@@ -59,8 +59,8 @@
   margin: 16px 0;
 }
 
-.main-pic-img {
-  max-width: 600px;
+.main-pic-image {
+  width: 600px;
 }
 
 // DESCRIPTION
@@ -70,13 +70,13 @@
 
 // MEDIA QUERIES
 @media(max-width: 990px) {
-  .main-pic-img {
-    max-width: 400px;
+  .main-pic-image {
+    width: 400px;
   }
 }
 
 @media(max-width: 768px) {
-  .main-pic-img {
-    max-width: 300px;
+  .main-pic-image {
+    width: 300px;
   }
 }
