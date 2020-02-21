@@ -30,13 +30,11 @@
   </div>
 </div>
 
-<div class="row">
+<div class="row row-content">
   <div class="col-8">
     <div class="main-pic">
-      <a href="https://www.youtube.com/watch?v=ma7TL8jJT0A">
-        <% random_img = ["07_ljxygu", "04_rtymsz", "01_x67kdi", "06_q2rsfn", "05_p1r7ub", "08_fpsmhu", "03_dvrozk", "02_dwhcf8"] %>
-        <%= cl_image_tag @spaceship.photo.attached? ? @spaceship.photo.key : random_img.sample, width: 350 %>
-      </a>
+      <% random_img = ["07_ljxygu", "04_rtymsz", "01_x67kdi", "06_q2rsfn", "05_p1r7ub", "08_fpsmhu", "03_dvrozk", "02_dwhcf8"] %>
+      <%= cl_image_tag @spaceship.photo.attached? ? @spaceship.photo.key : random_img.sample, width: 350 %>
     </div>
 
     <div class="spaceship-infos">

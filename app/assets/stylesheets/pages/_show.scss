@@ -7,6 +7,18 @@
   z-index: 3;
 }
 
+.row-content {
+  max-height: calc(100vh - 180px);
+  overflow: scroll;
+  // for IE and Edge
+  -ms-overflow-style: none;
+}
+
+// For Chrome, Safari and Opera
+.row-content::-webkit-scrollbar {
+  display: none;
+}
+
 .spaceship-header {
   display: flex;
   align-items: center;
