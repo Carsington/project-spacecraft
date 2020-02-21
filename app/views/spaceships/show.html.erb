@@ -19,15 +19,17 @@
       <h3 class="subtitle">(<%= @spaceship.address %>)</h3>
       <a href="#reviews-part">
         <div class="stars">
-          <% reviews = 0 %>
-          <% average = 0 %>
-          <% @spaceship.reviews.each do |review| %>
-            <% reviews += review.stars %>
+          <% if @no_reviews %>
+            <p>Be the first to add a review!</p>
+          <% else %>
+            <% @full_stars.times do %>
+              <i class="fas fa-star"></i>
+            <% end %>
+            <% @empy_stars.times do %>
+              <i class="far fa-star"></i>
+            <% end %>
           <% end %>
-          <% average = reviews / @spaceship.reviews.count %>
-          <% average.times do %>
-            <i class="fas fa-star"></i>
-          <% end %>
+
         </div>
       </a>
     </div>
