@@ -17,4 +17,10 @@ class Spaceship < ApplicationRecord
             :max_speed, :capacity, presence: true
   validates :name, uniqueness: true, length: { minimum: 5 }
   validates :description, length: { minimum: 20 }
+
+   def unavailable_dates
+    bookings.pluck(:start_date, :end_date).map do |range|
+      { from: range[0], to: range[1] }
+    end
+  end
 end
