@@ -19,11 +19,17 @@
       <h3 class="subtitle">(<%= @spaceship.address %>)</h3>
       <a href="#reviews-part">
         <div class="stars">
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star-half-alt"></i>
+          <% if @no_reviews %>
+            <p>Be the first to add a review!</p>
+          <% else %>
+            <% @full_stars.times do %>
+              <i class="fas fa-star"></i>
+            <% end %>
+            <% @empy_stars.times do %>
+              <i class="far fa-star"></i>
+            <% end %>
+          <% end %>
+
         </div>
       </a>
     </div>
@@ -60,10 +66,13 @@
         <div class="reviews-list">
           <ul>
             <% @spaceship.reviews.each do |review| %>
-              <li><%= review.comment %> - <% review.stars.times do %>
+              <li><%= review.user.nickname %> - <% review.stars.times do %>
                 <i class="fas fa-star"></i>
                <% end %>
+               <br>
+               "<%= review.comment %>"
               </li>
+              <br>
             <% end %>
           </ul>
         </div>

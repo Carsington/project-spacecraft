@@ -8,10 +8,10 @@
         <%= f.input :name, placeholder: "Shuttle Up" %>
         <%= f.input :address, placeholder: "Earth, Solar System, Milky Way Galaxy" %>
         <%= f.input :description, placeholder: "Tell us more about how splendid your spaceship is" %>
-        <%= f.input :unit_price, placeholder: "30000" %>
-        <%= f.input :size %>
-        <%= f.input :max_speed %>
-        <%= f.input :capacity %>
+        <%= f.input :unit_price, placeholder: "30000€" %>
+        <%= f.input :size, placeholder: "100m" %>
+        <%= f.input :max_speed, placeholder: "39000km/h" %>
+        <%= f.input :capacity, placeholder: "6 person" %>
         <%= f.input :photo, as: :file %>
         <%= f.submit "Add my spaceship", class: "btn btn-primary btn-block" %>
       <% end %>
