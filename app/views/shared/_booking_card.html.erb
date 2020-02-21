@@ -1,14 +1,14 @@
 <% @user.bookings.each do |booking| %>
-  <%= link_to spaceship_path(booking.spaceship) do %>
+  <%= link_to spaceship_path(booking.spaceship), class:"card-link" do %>
     <div class="card-ship m-2">
       <% random_img = ["07_ljxygu", "04_rtymsz", "01_x67kdi", "06_q2rsfn", "05_p1r7ub", "08_fpsmhu", "03_dvrozk", "02_dwhcf8"] %>
-      <%= cl_image_tag booking.spaceship.photo.attached? ? booking.spaceship.photo.key : random_img.sample, height: 300, width: 350, crop: :fill %>
+      <%= cl_image_tag booking.spaceship.photo.attached? ? booking.spaceship.photo.key : random_img.sample, height: 300, width: 350 %>
       <div class="card-ship-infos">
         <div>
           <h2><%= booking.spaceship.name %></h2>
           <p>BOOKED FROM <%= booking.start_date %> TO <%= booking.end_date %></p>
         </div>
-        <h2 class="card-ship-pricing">total: <%= booking.total_price %>€</h2>
+        <h2 class="card-ship-pricing"><i class="fas fa-coins"></i> <%= booking.total_price %></h2>
         <img src="https://pbs.twimg.com/profile_images/794107415876747264/g5fWe6Oh_400x400.jpg" class="card-ship-user avatar-bordered" />
       </div>
     </div>

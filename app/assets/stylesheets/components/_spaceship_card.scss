@@ -1,23 +1,31 @@
 .card-ship {
   overflow: hidden;
   background: rgba(0, 44, 69, 0.6);
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  min-width: 300px;
-  max-width: 400px;
-  min-height: 200px;
-  max-height: 300px;
+  width: 350px;
+  height: 300px;
   border: 1px solid #0a5688;
+  transition: 0.2s;
+
+  &:hover {
+    box-shadow: 0 0 36px #0a5688;
+    transition: 0.2s;
+    transform: scale(1.12);
+  }
 }
 
-.card-link:hover {
-  text-decoration: none;
+.card-link + .card-link {
+  margin-left: 0px;
+
+  &:hover {
+    text-decoration: none;
+  }
 }
 
 .card-ship > img {
   height: 200px;
   width: 100%;
   object-fit: cover;
-  border: 1px solid #0a5688;
+  border-bottom: 1px solid #0a5688;
 }
 
 .card-ship h2 {
@@ -28,13 +36,20 @@
   color: #00edff;
 }
 
+h2.card-ship-pricing {
+  color: $yellow-price;
+  text-shadow: 0 0 10px #e2610b, 0 0 14px #e2610b;
+  font-size: 1.15em;
+}
+
 .card-ship p {
   font-size: 12px;
   opacity: .7;
   margin: 0;
   font-family: 'Electrolize', sans-serif;
-  max-width: 65%;
-  overflow: hidden;
+  max-width: 70%;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .card-ship .card-ship-infos {

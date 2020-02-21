@@ -10,7 +10,7 @@
         <div class="dates">
         <%= simple_form_for([@spaceship, @booking]) do |f| %>
         <%= f.input :start_date, as: :string, label: "Dates", placeholder: "From", wrapper_html: { class: "inline_field_wrapper" } %>
-  <%= f.input :end_date, as: :string, label: '&nbsp;'.html_safe, placeholder: "To", disabled: true, wrapper_html: { class: "inline_field_wrapper" } %>
+        <%= f.input :end_date, as: :string, label: '&nbsp;'.html_safe, placeholder: "To", disabled: true, wrapper_html: { class: "inline_field_wrapper" } %>
         <%= f.submit "Book now!", class: "btn btn-primary btn-block" %>
       <% end %>
       </div>
