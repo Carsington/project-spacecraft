@@ -70,11 +70,13 @@
 
   <div class="col-4">
     <% if user_signed_in? && current_user.id != @spaceship.user_id %>
-
+<div class="booking-form">
           <div class="widget-content" data-unavailable="<%= @spaceship.unavailable_dates.to_json %>">
       <hr>
+
         <div class="dates">
         <%= render 'bookings/new' %>
+      </div>
       </div>
     </div>
     <% end %>
