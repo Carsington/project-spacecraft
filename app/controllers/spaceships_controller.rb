@@ -67,7 +67,7 @@ class SpaceshipsController < ApplicationController
 
   def destroy
     @spaceship.destroy
-    redirect_to spaceships_path
+    redirect_to user_path(current_user)
   end
 
   private
