@@ -28,6 +28,11 @@
   color: #00edff;
 }
 
+h2.card-ship-pricing {
+  color: $green-price;
+  text-shadow: 0px 0px 3px #4DFF2A, 0px 0px 3px #4DFF2A;
+}
+
 .card-ship p {
   font-size: 12px;
   opacity: .7;

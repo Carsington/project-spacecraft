@@ -1,5 +1,5 @@
 <% @user.bookings.each do |booking| %>
-  <%= link_to spaceship_path(booking.spaceship) do %>
+  <%= link_to spaceship_path(booking.spaceship), class:"card-link" do %>
     <div class="card-ship m-2">
       <% random_img = ["07_ljxygu", "04_rtymsz", "01_x67kdi", "06_q2rsfn", "05_p1r7ub", "08_fpsmhu", "03_dvrozk", "02_dwhcf8"] %>
       <%= cl_image_tag booking.spaceship.photo.attached? ? booking.spaceship.photo.key : random_img.sample, height: 300, width: 350, crop: :fill %>
