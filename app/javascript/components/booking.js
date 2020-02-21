@@ -1,8 +1,13 @@
 import flatpickr from 'flatpickr';
 
+console.log('entry point');
+
 const toggleDateInputs = function() {
   const startDateInput = document.getElementById('booking_start_date');
   const endDateInput = document.getElementById('booking_end_date');
+
+  console.log(startDateInput);
+  console.log(endDateInput);
 
   if (startDateInput && endDateInput) {
     const unvailableDates = JSON.parse(document.querySelector('.widget-content').dataset.unavailable)
