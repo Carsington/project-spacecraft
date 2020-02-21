@@ -21,6 +21,18 @@ class SpaceshipsController < ApplicationController
 
   def show
     @spaceship = Spaceship.find(params[:id])
+    if @spaceship.reviews.count <= 0
+      @no_reviews = true
+    else
+      sum_stars = 0
+      @spaceship.reviews.each do |review|
+        sum_stars += review.stars
+      end
+      @full_stars = sum_stars / @spaceship.reviews.count
+      @empy_stars = 5 - @full_stars
+    end
+
+
     @booking = Booking.new
     @review = Review.new
   end
