@@ -5,7 +5,7 @@
 
       <div class="spaceship-header">
         <h1><%= @spaceship.name %></h1>
-        
+
         <% if user_signed_in? && current_user.id == @spaceship.user_id %>
           <div class="edit-delete">
             <%= link_to "edit", edit_spaceship_path(@spaceship), class: "links" %> -
