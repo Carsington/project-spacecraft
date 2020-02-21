@@ -44,12 +44,13 @@
   <div class="row row-content">
     <div class="col-8">
 
-      <div class="main-pic">
-        <% random_img = ["07_ljxygu", "04_rtymsz", "01_x67kdi", "06_q2rsfn", "05_p1r7ub", "08_fpsmhu", "03_dvrozk", "02_dwhcf8"] %>
-        <%= cl_image_tag @spaceship.photo.attached? ? @spaceship.photo.key : random_img.sample, width: 350 %>
-      </div>
+      <div class="card-ship-show">
+        <div class="main-pic">
+          <% random_img = ["07_ljxygu", "04_rtymsz", "01_x67kdi", "06_q2rsfn", "05_p1r7ub", "08_fpsmhu", "03_dvrozk", "02_dwhcf8"] %>
+          <%= cl_image_tag @spaceship.photo.attached? ? @spaceship.photo.key : random_img.sample, width: 350 %>
+        </div>
 
-      <div class="spaceship-infos">
+  <!--       <div class="spaceship-infos"> -->
         <div class="description">
           <h3>Description</h3>
           <p><%= @spaceship.description %></p>
@@ -63,30 +64,31 @@
             <p><i class="fas fa-users"></i> <%= @spaceship.capacity %> passengers</p>
           </div>
         </div>
+      </div>
 
-        <div class="reviews">
-          <h3>Reviews</h3>
+      <div class="reviews">
+        <h3>Reviews</h3>
 
-          <div class="reviews-list my-3">
-            <ul><% @spaceship.reviews.each do |review| %>
-                <li>
-                  <%= review.user.nickname %> - <% review.stars.times do %>
-                    <i class="fas fa-star"></i>
-                  <% end %>
-                  <br>
-                  "<%= review.comment %>"
-                </li>
-                <br>
-              <% end %></ul>
-          </div>
-
-          <% if user_signed_in? && current_user.id != @spaceship.user_id %>
-            <div class="review-form">
-              <%= render 'reviews/new' %>
+        <div class="reviews-list my-3">
+          <% @spaceship.reviews.each do |review| %>
+            <div class="card-ship-show">
+                <%= review.user.nickname %> - <% review.stars.times do %>
+                  <i class="fas fa-star"></i>
+                <% end %>
+                <br><br>
+                "<%= review.comment %>"
+              <br>
             </div>
           <% end %>
         </div>
+
+        <% if user_signed_in? && current_user.id != @spaceship.user_id %>
+          <div class="review-form">
+            <%= render 'reviews/new' %>
+          </div>
+        <% end %>
       </div>
+<!--       </div> -->
 
     </div>
 
