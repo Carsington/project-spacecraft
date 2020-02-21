@@ -19,11 +19,15 @@
       <h3 class="subtitle">(<%= @spaceship.address %>)</h3>
       <a href="#reviews-part">
         <div class="stars">
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star-half-alt"></i>
+          <% reviews = 0 %>
+          <% average = 0 %>
+          <% @spaceship.reviews.each do |review| %>
+            <% reviews += review.stars %>
+          <% end %>
+          <% average = reviews / @spaceship.reviews.count %>
+          <% average.times do %>
+            <i class="fas fa-star"></i>
+          <% end %>
         </div>
       </a>
     </div>
@@ -60,10 +64,13 @@
         <div class="reviews-list">
           <ul>
             <% @spaceship.reviews.each do |review| %>
-              <li><%= review.comment %> - <% review.stars.times do %>
+              <li><%= review.user.nickname %> - <% review.stars.times do %>
                 <i class="fas fa-star"></i>
                <% end %>
+               <br>
+               "<%= review.comment %>"
               </li>
+              <br>
             <% end %>
           </ul>
         </div>
