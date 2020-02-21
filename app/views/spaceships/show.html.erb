@@ -42,7 +42,7 @@
   </div>
 
   <div class="row row-content">
-    <div class="col-7">
+    <div class="col-8">
 
       <div class="main-pic">
         <% random_img = ["07_ljxygu", "04_rtymsz", "01_x67kdi", "06_q2rsfn", "05_p1r7ub", "08_fpsmhu", "03_dvrozk", "02_dwhcf8"] %>
@@ -90,7 +90,7 @@
 
     </div>
 
-    <div class="col-5">
+    <div class="col-4">
       <% if user_signed_in? && current_user.id != @spaceship.user_id %>
         <div class="booking-form">
           <div class="widget-content" data-unavailable="<%= @spaceship.unavailable_dates.to_json %>">
