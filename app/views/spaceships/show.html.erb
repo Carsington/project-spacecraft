@@ -54,6 +54,11 @@
       </div>
       <div class="reviews">
         <h3>Reviews</h3>
+         <% if user_signed_in? && current_user.id != @spaceship.user_id %>
+      <div class="review-form">
+        <%= render 'reviews/new' %>
+      </div>
+    <% end %>
         <div class="reviews-list">
           <ul>
             <% @spaceship.reviews.each do |review| %>
@@ -77,11 +82,6 @@
         <%= render 'bookings/new' %>
       </div>
     </div>
-    <% end %>
-    <% if user_signed_in? && current_user.id != @spaceship.user_id %>
-      <div class="review-form">
-        <%= render 'reviews/new' %>
-      </div>
     <% end %>
   </div>
 </div>
